@@ -1,0 +1,39 @@
+# ─── Ambiente virtual ───
+venv/
+env/
+.venv/
+.env/
+
+# ─── Variáveis de ambiente (NUNCA commitar!) ───
+.env
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ─── Modelos treinados (grandes demais para o Git) ───
+models/*.pkl
+models/*.joblib
+
+# ─── Dados gerados ───
+data/dataset.csv
+data/imagens/
+
+# ─── IDEs ───
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ─── Sistema operacional ───
+.DS_Store
+Thumbs.db
+
+# ─── Logs ───
+*.log
