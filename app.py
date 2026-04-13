@@ -154,7 +154,7 @@ h1, h2, h3 {
     padding: 8px 20px !important;
 }
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, #0f766e, #1e40af) !important;
+    background: linear-gradient(90deg,rgba(111, 159, 176, 1) 0%, rgba(90, 209, 140, 1) 50%, rgba(242, 233, 145, 1) 100%) !important;
     color: white !important;
 }
 
