@@ -26,9 +26,9 @@ def get_connection():
     Usa o modo 'thin' do oracledb (não precisa do Oracle Client instalado).
     """
     conn = oracledb.connect(
-        user=os.getenv("ORACLE_USER"),
-        password=os.getenv("ORACLE_PASSWORD"),
-        dsn=os.getenv("ORACLE_DSN")
+        user=os.getenv("RM567477"),
+        password=os.getenv("261298"),
+        dsn=os.getenv("oracle.fiap.com.br:1521/ORCL")
     )
     return conn
 
