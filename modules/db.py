@@ -20,16 +20,21 @@ load_dotenv()
 # CONFIGURAÇÃO DE CONEXÃO
 # ─────────────────────────────────────────────────────────────
 
+import oracledb
+
 def get_connection():
-    """
-    Retorna uma conexão ativa com o banco Oracle.
-    Usa o modo 'thin' do oracledb (não precisa do Oracle Client instalado).
-    """
-    conn = oracledb.connect(
-        user=os.getenv("RM567477"),
-        password=os.getenv("261298"),
-        dsn=os.getenv("oracle.fiap.com.br:1521/ORCL")
+    dsn = oracledb.makedsn(
+        host="oracle.fiap.com.br",
+        port=1521,
+        sid="ORCL"  # 👈 aqui é SID, não service_name
     )
+
+    conn = oracledb.connect(
+        user="RM567477",
+        password="261298",
+        dsn=dsn
+    )
+
     return conn
 
 
