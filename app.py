@@ -46,14 +46,14 @@ html, body, [class*="css"] {
 }
 
 .stApp {
-    background-color: #f8fafc;
+    background-color:;
     background-image: none;
 }
 
 /* Títulos com fonte display */
 h1, h2, h3 {
     font-family: 'Syne', sans-serif !important;
-    color: #1e293b !important;
+    color: #FA4D4D !important;
     letter-spacing: -0.02em;
 }
 
@@ -69,7 +69,7 @@ h1, h2, h3 {
 
 /* Header do tótem - Light gradient */
 .totem-header {
-    background: linear-gradient(90deg,rgba(111, 159, 176, 1) 0%, rgba(90, 209, 140, 1) 50%, rgba(242, 233, 145, 1) 100%);
+    background: #f1f5f9;
     border-radius: 20px;
     padding: 36px 40px;
     margin-bottom: 32px;
@@ -93,7 +93,7 @@ h1, h2, h3 {
     font-weight: 800 !important;
 }
 .totem-header p {
-    color: rgba(255,255,255,0.85);
+    color: #000000 !important;
     font-size: 1.05rem;
     margin: 8px 0 0 0;
 }
@@ -125,9 +125,9 @@ h1, h2, h3 {
 }
 .fm-metric .valor {
     font-family: 'Syne', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #0f766e;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FA4D4D !important;
     line-height: 1;
 }
 .fm-metric .label {
@@ -154,7 +154,7 @@ h1, h2, h3 {
     padding: 8px 20px !important;
 }
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(90deg,rgba(111, 159, 176, 1) 0%, rgba(90, 209, 140, 1) 50%, rgba(242, 233, 145, 1) 100%) !important;
+    background:;
     color: white !important;
 }
 
@@ -173,8 +173,8 @@ h1, h2, h3 {
 
 /* Botões - Light */
 .stButton > button {
-    background: linear-gradient(135deg, #0f766e, #1e40af) !important;
-    color: white !important;
+    background: #FA4D4D !important;
+    color: #000000;
     border: none !important;
     border-radius: 10px !important;
     font-family: 'Syne', sans-serif !important;
@@ -211,7 +211,7 @@ h1, h2, h3 {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 4px;
-    color: #475569;
+    color: ;
 }
 
 /* Barra de probabilidade - Light */
@@ -225,7 +225,7 @@ h1, h2, h3 {
 .prob-bar-fill {
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(90deg, #0f766e, #1e40af);
+    background: #FA4D4D !important;
     transition: width 0.6s ease;
 }
 
@@ -430,8 +430,8 @@ Cadastre-se para uma experiência personalizada.
 
         if st.session_state.visitante_nome:
             st.markdown(f"""
-<div class="fm-card" style="border-color:#0f766e; padding:16px 20px">
-<span style="color:#0f766e; font-family:'Syne',sans-serif; font-weight:700">✓ Sessão ativa</span><br>
+<div class="fm-card" style="border-color:#000000; padding:16px 20px">
+<span style="color:#000000; font-family:'Syne',sans-serif; font-weight:700">✓ Sessão ativa</span><br>
 <span style="color:#475569; font-size:0.9rem">{st.session_state.visitante_nome}</span>
 </div>
 """, unsafe_allow_html=True)
@@ -533,9 +533,9 @@ Simule uma interação para descobrir o perfil previsto pelo modelo de IA.
                         probs  = resultado["probabilidades"]
 
                         st.markdown(f"""
-<div class="fm-card" style="border-color:#0f766e; text-align:center; padding:20px">
-<div style="font-size:0.8rem; color:#64748b; font-family:'Syne',sans-serif; text-transform:uppercase; letter-spacing:0.08em">Perfil previsto</div>
-<div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:#0f766e; margin:8px 0">{perfil.title()}</div>
+<div class="fm-card" style="border-color:#000000; text-align:center; padding:20px">
+<div style="font-size:0.8rem; color:#000000 !important; font-family:'Syne',sans-serif; text-transform:uppercase; letter-spacing:0.08em">Perfil previsto</div>
+<div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:#FA4D4D; margin:8px 0">{perfil.title()}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -667,11 +667,11 @@ with aba_analytics:
             ]:
                 with col:
                     st.markdown(f"""
-<div class="fm-metric">
-<div class="valor">{valor}</div>
-<div class="label">{label}</div>
-</div>
-""", unsafe_allow_html=True)
+                        <div class="fm-metric">
+                        <div class="valor">{valor}</div>
+                        <div class="label">{label}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
             st.markdown("<br>", unsafe_allow_html=True)
 
