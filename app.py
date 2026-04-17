@@ -293,6 +293,8 @@ def carregar_modulos():
             "iniciar": iniciar_conversa,
         }
     except Exception as e:
+        import traceback
+        traceback.print_exc()  # Isso mostra o erro real no terminal
         erros.append(f"❌ **chatbot.py**: {e}")
 
     try:
@@ -452,7 +454,7 @@ with aba_interagir:
             st.markdown("### 💬 Assistente Virtual")
 
             # Inicializa conversa se necessário
-            if not st.session_state.historico_chat and "chatbot" in modulos:
+            if not st.session_state.historico_chat and "chatbot.py" in modulos:
                 boas_vindas = modulos["chatbot"]["iniciar"](st.session_state.visitante_nome)
                 st.session_state.historico_chat.append(("totem", boas_vindas))
 
