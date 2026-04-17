@@ -1,43 +1,167 @@
-FIAP - Faculdade de Informática e Administração Paulista
-FIAP - Faculdade de Informática e Admnistração Paulista
+<p align="center">
+<a href="https://www.fiap.com.br/">
+  <img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Administração Paulista" border="0" width="40%" height="40%">
+</a>
+</p>
 
+<br>
 
-Flexmedia - Sprint final
+# Tótem Inteligente FlexMedia
 
-👨‍🎓 Integrantes:
+## Grupo FlexMedia — Challenge Sprint 4
+
+### 👨‍🎓 Integrantes:
+
 Gustavo Borges Marinho Peres
 
-📜 Descrição
-Totem interativo para museus, exposições, e eventos sociais, desenvolvido utilizando Python e SQL, e interface com Streamlit, o totem permite que o usuário interaja via chatbot, buscando informações sobre o evento. Além disso também foi treinado um modelo para previsão e classificação de interações, identificando o possível perfil do usuário. Também foi desenvolvido um módulo de visão computacional, onde, a partir de imagens geradas, é possível identificar o tema do objeto. para finalizar, temos uma tela de analytics, com os principais indicadores, gráficos e o registro das últimas interações.
+## 📜 Descrição
 
-📁 Estrutura de pastas
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+O **Tótem Inteligente FlexMedia** é uma solução digital interativa desenvolvida para ambientes de visitação — museus, centros culturais, eventos tecnológicos e espaços educacionais. 
 
-data: Nesta pasta ficarão os arquivos gerados, como as imagens para o módulo de visão computacional.
+A solução combina quatro grandes pilares tecnológicos. O primeiro é a **coleta e persistência de dados**, em que todas as interações dos visitantes são registradas em um banco de dados, estruturado em três tabelas relacionais: `visitantes`, `interacoes` e `logs_sistema`. Cada registro captura o tipo de ação realizada, a categoria temática acessada, o tempo de engajamento e a avaliação de satisfação do visitante.
 
-models: Aqui estão os arquivos relacionados ao treinamento do modelo de classificação de usuários.
+O segundo pilar é a **Inteligência Artificial aplicada à classificação de perfil**. Um modelo Random Forest foi treinado sobre os dados de interação para prever, em tempo real, o perfil de cada visitante — estudante, turista, pesquisador ou profissional. O modelo atingiu **91,84% de acurácia** no conjunto de teste.
 
-modules: Aqui estão os módulos presentes na aplicação (analytics, chatbot, db e vision)
+O terceiro pilar é a **Visão Computacional**. O sistema é capaz de receber imagens enviadas pelo visitante e classificá-las em uma das quatro categorias temáticas do tótem (Arte, Ciência, História ou Tecnologia). A classificação utiliza um modelo SVM com kernel RBF treinado sobre features de histograma de cor no espaço HSV, sem dependência de GPU ou modelos de deep learning, atingindo aproximadamente **93% de acurácia**.
 
-README.md: arquivo que serve como guia e explicação geral sobre o projeto.
+O quarto pilar é a **interação conversacional**, implementada por meio de um módulo de chatbot com detecção de intenção por expressões regulares. O assistente virtual do tótem responde perguntas sobre as exposições, horários, ingressos, acessibilidade, alimentação e serviços do espaço, mantendo contexto de sessão entre os turnos da conversa.
 
-🔧 Como executar o código
-Crie e ative o ambiente virtual (python -m venv venv e venv\Scripts\activate) e instale as bibliotecas e dependencias (pip install -r requirements.txt).
+Toda a solução é apresentada em uma **interface web construída com Streamlit**, organizada em quatro abas: Início (cadastro do visitante), Interagir (chatbot e classificador de perfil), Visão (upload e classificação de imagem) e Analytics (painel de métricas e gráficos de engajamento). O painel analítico exibe quatro visualizações — interações por categoria, satisfação por tipo de ação, volume por hora do dia e distribuição de perfis de visitantes — além de um conjunto de KPIs para o gestor do espaço.
 
-Passo 1
-    Inicializar o banco e gerar dados > python data/gerar_dados.py
+## 📁 Estrutura de pastas
 
-Passo 2
-    Treinar modelo de IA > python models/train_model.py
+```
+totem-flexmedia/
+│
 
-Passo 3
-    Rodar a aplicação > streamlit run app.py
+├── data/                     Imagens e elementos não-estruturados do repositório
+│
+├── docs/                     Documentação do projeto
+│   ├── arquitetura.md          Documentação técnica da arquitetura do sistema
+│   ├── relatorio-analitico.md  Relatório analítico final com interpretação dos dados
+│   └── other/                  Documentos complementares (guias de cada sprint)
+|
+├── data/
+│   └── gerar_dados.py      Geração de dados simulados e exportação CSV
+├── models/
+│   └── train_model.py      Pipeline de ML — Random Forest
+|── modules/
+│   ├── db.py               Conexão Oracle e funções CRUD
+│   ├── chatbot.py          Módulo de diálogo e detecção de intenção
+│   ├── vision.py           Visão computacional — SVM + OpenCV
+│   └── analytics.py        Métricas e gráficos de engajamento
+│
+├── app.py                      Interface Streamlit
+├── .env.example                Template de variáveis de ambiente
+├── .gitignore                  Arquivos ignorados pelo Git
+├── requirements.txt            Dependências do projeto
+└── README.md                   Este arquivo
+```
 
-🗃 Histórico de lançamentos
-0.4.0 - 17/04/2026 Fix analytics e adição do chatbot
-0.3.0 - 16/04/2026 Refinamento e alterações no estilo da aplicação
-0.2.0 - 13/04/2026 Repopulação das tabelas, treinamento do modelo e módulo de visão computacional
-0.1.0 - 08/04/2026 Commit inicial
-📋 Licença
+---
 
-MODELO GIT FIAP por Fiap está licenciado sobre Attribution 4.0 International.
+## 🔧 Como executar o código
+
+### Pré-requisitos
+
+| Ferramenta | Versão mínima | Download |
+|-----------|--------------|---------|
+| Python | 3.11+ | https://python.org |
+| Git | 2.40+ | https://git-scm.com |
+| Acesso ao Oracle FIAP | — | Credenciais fornecidas pela instituição |
+
+---
+
+### Fase 1 — Clonar o repositório
+
+```bash
+git clone https://github.com/SEU_USUARIO/totem-flexmedia.git
+cd totem-flexmedia
+```
+
+---
+
+### Fase 2 — Configurar o ambiente virtual
+
+```bash
+# Criar o ambiente virtual
+python -m venv venv
+
+# Ativar — Windows
+venv\Scripts\activate
+
+# Ativar — Linux/Mac
+source venv/bin/activate
+
+# Instalar dependências
+pip install -r requirements.txt
+```
+
+---
+
+### Fase 3 — Configurar as credenciais Oracle
+
+```bash
+# Copie o template
+cp .env.example .env
+```
+
+Edite o arquivo `.env` com suas credenciais da FIAP:
+
+```env
+ORACLE_USER=rmSEU_RM
+ORACLE_PASSWORD=SUA_SENHA
+ORACLE_DSN=oracle.fiap.com.br:1521/ORCL
+```
+
+> ⚠️ O arquivo `.env` está no `.gitignore` e **nunca deve ser enviado ao repositório**.
+
+---
+
+### Fase 4 — Inicializar o banco e gerar os dados
+
+```bash
+# Cria as tabelas no Oracle e popula com dados simulados
+python src/data/gerar_dados.py
+```
+
+---
+
+### Fase 5 — Treinar os modelos de IA
+
+```bash
+# Classificador de perfil (Random Forest)
+python src/models/train_model.py
+
+# Modelo de visão computacional (SVM)
+python src/modules/vision.py
+```
+
+---
+
+### Fase 6 — Executar a aplicação
+
+```bash
+streamlit run src/app.py
+```
+
+A aplicação estará disponível em: **http://localhost:8501**
+
+---
+
+## 🗃 Histórico de lançamentos
+
+* **1.0.0** — Entrega final: chatbot + correção dos gráficos de analytics
+* **0.6.0** — Módulo de analytics com 4 gráficos e exportação CSV
+* **0.5.0** — Interface Streamlit completa com 4 abas integradas
+* **0.4.0** — Módulo de chatbot com detecção de intenção e contexto de sessão
+* **0.3.0** — Visão computacional com SVM e histograma HSV (~93% acurácia)
+* **0.2.0** — Modelo Random Forest para classificação de perfil (91,84% acurácia)
+* **0.1.0** — Estrutura inicial, banco Oracle e geração de dados simulados
+
+---
+
+## 📋 Licença
+
+**Tótem Inteligente FlexMedia** por **Grupo FlexMedia — FIAP** está licenciado sobre
+[Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1).
