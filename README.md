@@ -8,6 +8,8 @@
 
 # Tótem Inteligente FlexMedia
 
+https://youtu.be/DibpSJPr88k
+
 ## Grupo FlexMedia — Challenge Sprint 4
 
 ### 👨‍🎓 Integrantes:
@@ -39,7 +41,7 @@ totem-flexmedia/
 ├── docs/                     Documentação do projeto
 │   ├── arquitetura.md          Documentação técnica da arquitetura do sistema
 │   ├── relatorio-analitico.md  Relatório analítico final com interpretação dos dados
-│   └── other/                  Documentos complementares (guias de cada sprint)
+│  
 |
 ├── data/
 │   └── gerar_dados.py      Geração de dados simulados e exportação CSV
@@ -72,30 +74,16 @@ totem-flexmedia/
 
 ---
 
-### Fase 1 — Clonar o repositório
+### Fase 1 — Configurar o ambiente virtual
 
-```bash
-git clone https://github.com/SEU_USUARIO/totem-flexmedia.git
-cd totem-flexmedia
-```
-
----
-
-### Fase 2 — Configurar o ambiente virtual
-
-```bash
 # Criar o ambiente virtual
 python -m venv venv
 
 # Ativar — Windows
 venv\Scripts\activate
 
-# Ativar — Linux/Mac
-source venv/bin/activate
-
 # Instalar dependências
 pip install -r requirements.txt
-```
 
 ---
 
@@ -114,15 +102,11 @@ ORACLE_PASSWORD=SUA_SENHA
 ORACLE_DSN=oracle.fiap.com.br:1521/ORCL
 ```
 
-> ⚠️ O arquivo `.env` está no `.gitignore` e **nunca deve ser enviado ao repositório**.
-
----
-
 ### Fase 4 — Inicializar o banco e gerar os dados
 
 ```bash
 # Cria as tabelas no Oracle e popula com dados simulados
-python src/data/gerar_dados.py
+python data/gerar_dados.py
 ```
 
 ---
@@ -131,10 +115,10 @@ python src/data/gerar_dados.py
 
 ```bash
 # Classificador de perfil (Random Forest)
-python src/models/train_model.py
+python models/train_model.py
 
 # Modelo de visão computacional (SVM)
-python src/modules/vision.py
+python modules/vision.py
 ```
 
 ---
@@ -142,12 +126,8 @@ python src/modules/vision.py
 ### Fase 6 — Executar a aplicação
 
 ```bash
-streamlit run src/app.py
+streamlit run app.py
 ```
-
-A aplicação estará disponível em: **http://localhost:8501**
-
----
 
 ## 🗃 Histórico de lançamentos
 
